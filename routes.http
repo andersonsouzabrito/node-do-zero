@@ -1,4 +1,4 @@
-POST http://localhost:3333/videos
+POST https://node-do-zero-u2rl.onrender.com/videos
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ### 
 
-GET http://localhost:3333/videos?search=node
+GET https://node-do-zero-u2rl.onrender.com/videos?search=node
 
 ### 
 

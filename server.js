@@ -38,7 +38,7 @@ server.get('/videos', async (request) => {
 server.post('/videos', async (request, reply) => {
     const { title, description, duration } = request.body
 
-    //console.log(body)
+    //console.log(body) 
 
     await database.create({
         title,
