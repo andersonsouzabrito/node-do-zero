@@ -1,22 +1,9 @@
-/* import { createServer } from 'node:http'
-
-const server = createServer((req, res) => {
-    res.write('Oi write')
-
-    return res.end()
-})
-
-server.listen(3333) */
-
 import { title } from 'node:process'
-//import { DatabaseMemory } from './database-memory.js'
 import { DatabasePostgres } from './database-postgres.js'
-
 import { fastify } from 'fastify'
 import { request } from 'node:http'
 
-const server = fastify()
-//const database = new DatabaseMemory()
+const server   = fastify()
 const database = new DatabasePostgres()
 
 server.get('/', () => {
@@ -38,15 +25,11 @@ server.get('/videos', async (request) => {
 server.post('/videos', async (request, reply) => {
     const { title, description, duration } = request.body
 
-    //console.log(body) 
-
     await database.create({
         title,
         description,
         duration,
     })
-
-    //console.log(database.list())
 
     return reply.status(201).send()
 })
